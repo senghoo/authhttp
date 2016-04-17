@@ -26,5 +26,5 @@ func main() {
 		handler.ServeHTTP(res, &req.Request)
 	}
 	authenticator := auth.NewBasicAuthenticator(opts.Realm, secret)
-	log.Fatal(http.ListenAndServe(":8080", authenticator.Wrap(authHandler)))
+	log.Fatal(http.ListenAndServe(opts.Listen, authenticator.Wrap(authHandler)))
 }

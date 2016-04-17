@@ -9,10 +9,11 @@ import (
 const usage string = "Usage: %s [OPTIONS]\n"
 
 type Options struct {
-	User  string
-	Pass  string
-	Path  string
-	Realm string
+	User   string
+	Pass   string
+	Path   string
+	Listen string
+	Realm  string
 }
 
 func ParseArgs() (opts *Options, err error) {
@@ -35,6 +36,10 @@ func ParseArgs() (opts *Options, err error) {
 		"path",
 		"",
 		"Path for serve")
+	listen := flag.String(
+		"listen",
+		":8080",
+		"Listen address")
 	realm := flag.String(
 		"realm",
 		"Auth",
@@ -51,9 +56,10 @@ func ParseArgs() (opts *Options, err error) {
 	}
 
 	return &Options{
-		User:  *user,
-		Pass:  *pass,
-		Path:  *path,
-		Realm: *realm,
+		User:   *user,
+		Pass:   *pass,
+		Path:   *path,
+		Listen: *listen,
+		Realm:  *realm,
 	}, nil
 }

@@ -13,4 +13,5 @@ Simple HTTP file server with basic auth
 * `-pass` password for user
 * `-path` serve path
 * `-realm` realm message
+* `-listen` listen address
 
