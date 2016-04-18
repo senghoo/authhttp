@@ -29,7 +29,7 @@ func ParseArgs() (opts *Options, err error) {
 
 	pass := flag.String(
 		"pass",
-		"pass",
+		"",
 		"Password for user")
 
 	path := flag.String(
@@ -38,7 +38,7 @@ func ParseArgs() (opts *Options, err error) {
 		"Path for serve")
 	listen := flag.String(
 		"listen",
-		":8080",
+		"0.0.0.0:8080",
 		"Listen address")
 	realm := flag.String(
 		"realm",

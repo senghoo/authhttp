@@ -25,6 +25,11 @@ func main() {
 	authHandler := func(res http.ResponseWriter, req *auth.AuthenticatedRequest) {
 		handler.ServeHTTP(res, &req.Request)
 	}
+	if opts.Pass == "" {
+		opts.Pass = RandStringRunes(10)
+	}
 	authenticator := auth.NewBasicAuthenticator(opts.Realm, secret)
+	fmt.Printf("Serving directory %s\n", opts.Path)
+	fmt.Printf("Visit via http://%s:%s@%s\n", opts.User, opts.Pass, opts.Listen)
 	log.Fatal(http.ListenAndServe(opts.Listen, authenticator.Wrap(authHandler)))
 }
