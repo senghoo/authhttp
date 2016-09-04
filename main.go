@@ -30,6 +30,6 @@ func main() {
 	}
 	authenticator := auth.NewBasicAuthenticator(opts.Realm, secret)
 	fmt.Printf("Serving directory %s\n", opts.Path)
-	fmt.Printf("Visit via http://%s:%s@%s\n", opts.User, opts.Pass, opts.Listen)
+	fmt.Printf("Listening http://%s\n User: %s\n Password: %s", opts.Listen, opts.User, opts.Pass)
 	log.Fatal(http.ListenAndServe(opts.Listen, authenticator.Wrap(authHandler)))
 }
