@@ -9,6 +9,10 @@ Simple HTTP file server with basic auth
 
 ## Usage
 
+`authhttp -pass 123456`
+
+## Options
+
 * `-user` auth username
 * `-pass` password for user
 * `-path` serve path
